@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+<!--
+Qweb Template for Opportunity Tag Cloud
+-->
+
+<record id="crm_oppor_search_tags" model="crm.lead"
+    <field name="name">Opportunity Tag Cloud</field>
+    <field name="model">crm.lead</field>
+    <field name="arch" type="xml">
+        <field
+    
+<template>
+<filter
+    string="Tags"
+  domain=['categ_id','=','some_value']/>
+
+</template>
+
+</data>
+</openerp>
