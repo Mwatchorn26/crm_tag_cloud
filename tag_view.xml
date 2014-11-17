@@ -1,22 +1,28 @@
 <?xml version="1.0"?>
 <openerp>
-    <data>
-<!--
-Qweb Template for Opportunity Tag Cloud
--->
-
-<record id="crm_oppor_search_tags" model="crm.lead"
-    <field name="name">Opportunity Tag Cloud</field>
-    <field name="model">crm.lead</field>
-    <field name="arch" type="xml">
-        <field
-    
-<template>
-<filter
-    string="Tags"
-  domain=['categ_id','=','some_value']/>
-
-</template>
-
-</data>
+	<data>
+	<!-- 
+	Qweb Template for Opportunity Tag Cloud
+	-->
+		<record id="crm_oppor_search_tags" model="crm.lead">
+			<field name="name">Opportunity Tag Cloud</field>
+			<field name="model">crm.lead</field>
+	    	<field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+			<field name="arch" type="xml">
+				<data>
+					<!-- Opportunity Extras -->
+               	   	<xpath expr="//filter[@string='New Mail']" position="after">
+               	   		<separator />
+						<group expand="0" string="Tags" colspan="16">	
+							<template>
+								<t t-foreach="categ_id" t-as="tag">
+									<filter t-att-string="{{ tag.lower() }}" t-att-name="tag_{{ tag.lower()}}" t-att-domain="['categ_id','=','{{ tag.lower() }}']" help='Opportunities tagged with the word "{{ tag.lower() }}"'/>
+								</t>
+							</template>
+						</group>
+					</xpath>
+				</data>
+			</field>
+		</record>
+	</data>
 </openerp>
