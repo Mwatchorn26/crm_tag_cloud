@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-        <record id="crm_tag_cloud.crm_tag_cloud_demo" model="crm_tag_cloud">
-            <field name="name">My first record for model 'crm_tag_cloud.crm_tag_cloud'</field>
-        </record>
-
-    </data>
-</openerp>
