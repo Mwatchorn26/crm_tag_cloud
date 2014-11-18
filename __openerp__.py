@@ -3,15 +3,16 @@
     'name': "crm_tag_cloud",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Tag Cloud Search Filter for Opportunities""",
 
     'description': """
-        Long description of module's purpose
+        This module provides all the tags (aka categories, aka categ_id) 
+        as filter options under the search view drawer. It creates a Tag 
+        Cloud, allowing the user to see all the tags in one shot.
     """,
 
-    'author': "Your Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Transformix Engineering Inc.",
+    'website': "http://www.transformix.com",
 
     # Categories can be used to filter modules in modules listing
     # Check <odoo>/addons/base/module/module_data.xml of the full list
@@ -19,11 +20,8 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website'],
-    'data': ["security/ir.model.access.csv"],
-
-    'demo': ["data/crm_tag_cloud_demo.xml"],
-
-    'tests': [
-    ],
+    'depends': ['base', 'crm'],
+    'data': ['tag_view.xml'],
+    'demo': [],
+    'tests': [],
 }
