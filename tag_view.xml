@@ -4,22 +4,21 @@
 	<!-- 
 	Qweb Template for Opportunity Tag Cloud
 	-->
-		<record id="crm_oppor_search_tags" model="crm.lead">
+		<record id="crm_oppor_search_tags" model="ir.ui.view">
 			<field name="name">Opportunity Tag Cloud</field>
 			<field name="model">crm.lead</field>
-	    	<field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+	    	<field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
 			<field name="arch" type="xml">
 				<data>
-					<!-- Opportunity Extras -->
                	   	<xpath expr="//filter[@string='New Mail']" position="after">
-               	   		<separator />
-						<group expand="0" string="Tags" colspan="16">	
-							<template>
-								<t t-foreach="categ_id" t-as="tag">
-									<filter t-att-string="{{ tag.lower() }}" t-att-name="tag_{{ tag.lower()}}" t-att-domain="['categ_id','=','{{ tag.lower() }}']" help='Opportunities tagged with the word "{{ tag.lower() }}"'/>
-								</t>
-							</template>
-						</group>
+               	   		<filter string="Has Email" name="has_email" 
+                            domain="[('email_from', 'ilike', '@')]"/>
+               	   	    <separator />
+                        <template id="something_whitty">
+							<t t-foreach="categ_ids" t-as="tag">
+								<filter t-att-string="{{ tag.lower() }}" t-att-name="tag_{{ tag.lower()}}" t-att-domain="['categ_ids','=','{{ tag.lower() }}']" help='Opportunities tagged with the word "{{ tag.lower() }}"'/>
+							</t>
+						</template>
 					</xpath>
 				</data>
 			</field>
